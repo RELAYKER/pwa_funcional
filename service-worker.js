@@ -1,4 +1,4 @@
-const cacheName = "pwa-timer-cache-v1";  // Nombre del caché
+const cacheName = "pwa-timer-cache-v1";
 const assets = [
     "/",
     "/index.html",
@@ -12,7 +12,6 @@ const assets = [
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(cacheName).then((cache) => {
-            // Guardamos los archivos en caché
             return cache.addAll(assets).catch((err) => {
                 console.error("Error al agregar archivos a la caché:", err);
             });
