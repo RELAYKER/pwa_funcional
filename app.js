@@ -4,7 +4,7 @@ if ('serviceWorker' in navigator) {
         .then(() => console.log('Service Worker registrado correctamente.'))
         .catch((err) => console.error('Error al registrar el Service Worker:', err));
 }
-
+navigator.serviceWorker.register('./service-worker.js');
 let timerInterval;
 let totalSeconds = 0; // Tiempo total en segundos
 let isRunning = false;
