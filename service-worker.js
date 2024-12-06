@@ -1,9 +1,9 @@
 const cacheName = "pwa-timer-cache-v1";
 const assets = [
     "/",
-    "/index.html",
-    "/style.css",
-    "/app.js",
+    "./index.html",
+    "./style.css",
+    "./app.js",
 ];
 
 // Instalar Service Worker
