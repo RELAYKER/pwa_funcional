@@ -1,16 +1,20 @@
 const cacheName = "pwa-timer-cache-v1";
 const assets = [
     "/",
-    "./index.html",
-    "./style.css",
-    "./app.js",
+    "/index.html",
+    "/style.css",
+    "/app.js",
+    "/icon-192.png",
+    "/icon-512.png"
 ];
 
 // Instalar Service Worker
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(cacheName).then((cache) => {
-            return cache.addAll(assets);
+            return cache.addAll(assets).catch((err) => {
+                console.error("Error al agregar archivos a la caché:", err);
+            });
         })
     );
 });
