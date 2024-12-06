@@ -1,5 +1,3 @@
-let timerInterval;
-let totalSeconds = 0; // Tiempo total en segundos
 let isRunning = false;
 
 // Elementos del DOM
