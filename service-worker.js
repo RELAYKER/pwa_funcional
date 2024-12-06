@@ -38,3 +38,24 @@ self.addEventListener("fetch", (event) => {
         })
     );
 });
+self.addEventListener("fetch", (event) => {
+    // Ignorar solicitudes que no sean de tu dominio
+    if (event.request.url.startsWith('chrome-extension://')) {
+        return;
+    }
+
+    event.respondWith(
+        caches.match(event.request).then((response) => {
+            if (response) {
+                console.log(`Service Worker: Sirviendo desde la caché: ${event.request.url}`);
+                return response;  // Devolver archivo desde la caché
+            }
+
+            console.log(`Service Worker: No encontrado en caché, solicitando desde la red: ${event.request.url}`);
+            return fetch(event.request).catch((err) => {
+                console.error("Error al hacer la solicitud de red:", err);
+            });  // Si no está en caché, hacer la solicitud de red
+        })
+    );
+});
+
