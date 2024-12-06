@@ -1,3 +1,5 @@
+let timerInterval;
+let totalSeconds = 0; // Tiempo total en segundos
 let isRunning = false;
 
 // Elementos del DOM
@@ -39,15 +41,3 @@ resetButton.addEventListener("click", () => {
     isRunning = false;
     updateDisplay();
 });
-
-// Registrar el Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')  // Debe ser '/service-worker.js'
-        .then((registration) => {
-            console.log('Service Worker registrado con éxito:', registration);
-        })
-        .catch((error) => {
-            console.log('Error al registrar el Service Worker:', error);
-        });
-}
-
