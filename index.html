@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contador de Tiempo PWA</title>
-    <link rel="manifest" href="/manifest.json"> <!-- Manifiesto de la PWA -->
-    <link rel="icon" href="/favicon.ico"> <!-- Icono para la página -->
+        <link rel="manifest" href="manifest.json">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,21 +20,6 @@
             <button id="reset">Restablecer</button>
         </div>
     </div>
-
-    <script src="/app.js"></script>  <!-- JavaScript de la funcionalidad -->
-    <script>
-        // Registra el Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registrado con éxito:', registration);
-                    })
-                    .catch((error) => {
-                        console.error('Error al registrar el Service Worker:', error);
-                    });
-            });
-        }
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
